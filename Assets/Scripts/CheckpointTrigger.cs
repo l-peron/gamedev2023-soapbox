@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class CheckpointTrigger : MonoBehaviour
 {
-    [SerializeField]
-    public CheckpointsHandler checkpointsHandler;
+    [SerializeField] CheckpointsHandler checkpointsHandler;
 
     //Upon collision with another Player, update checkpoint's index
     private void OnTriggerEnter(Collider other)

@@ -361,7 +361,6 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/com.unity.cinemachine.editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
--r:"Library/Bee/artifacts/200b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll"
@@ -386,7 +385,10 @@
 -analyzer:"/Applications/Unity/Hub/Editor/2023.2.1f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/CheckpointsHandler.cs"
 "Assets/Scripts/CheckpointTrigger.cs"
+"Assets/Scripts/GameState.cs"
+"Assets/Scripts/UIHandler.cs"
 "Assets/Scripts/WheelController.cs"
+"Assets/Scripts/WinHandler.cs"
 -langversion:9.0
 
 /deterministic

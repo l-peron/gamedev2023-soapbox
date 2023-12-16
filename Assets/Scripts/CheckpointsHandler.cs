@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CheckpointsHandler : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject[] checkpoints;
-
-    [SerializeField]
-    public GameObject player;
+    [SerializeField] GameObject[] checkpoints;
+    [SerializeField] GameObject player;
+    [SerializeField] ParticleSystem playerParticleSystem;
+    [SerializeField] UIHandler UIHandler;
+    [SerializeField] GameState gameState;
+    [SerializeField] WinHandler winHandler;
 
     private int currentCheckpoint = 0;
 
@@ -17,6 +18,12 @@ public class CheckpointsHandler : MonoBehaviour
     {
         // Reset player's position to be at first checkpoint
         ReloadCheckpoint();
+        // Update UI for checkpoints
+        UIHandler.setCheckpointCounter(this.currentCheckpoint, this.checkpoints.Length - 1);
+        // Play particles
+        playerParticleSystem.Play();
+        // Print start
+        StartCoroutine(UIHandler.printNotification("GO !"));
     }
 
     private void ReloadCheckpoint() {
@@ -38,7 +45,8 @@ public class CheckpointsHandler : MonoBehaviour
     void Update()
     {
         // If 'R' key is pressed, return to last checkpoint
-        if(Input.GetKeyDown(KeyCode.R)) {
+        // Also checking if player hasn't won already (skipping input)
+        if(!gameState.getHasWon() && Input.GetKeyDown(KeyCode.R)) {
             ReloadCheckpoint();
         }
     }
@@ -62,7 +70,22 @@ public class CheckpointsHandler : MonoBehaviour
         
         Debug.Log($"Updating checkpoint : new checkpoint's index is {index} !");
 
+        // Play particle explosion
+        playerParticleSystem.Play();
+
         // Update the checkpoint index
         this.currentCheckpoint = index;
+
+        UIHandler.setCheckpointCounter(this.currentCheckpoint, this.checkpoints.Length - 1);
+
+        // Final checkpoint reached
+        if(index == this.checkpoints.Length - 1) {
+            Debug.Log("Player reached last checkpoint !");
+            StartCoroutine(UIHandler.printNotification("RACE FINISHED !"));
+            winHandler.win();
+        } else {
+            // Update UI
+            StartCoroutine(UIHandler.printNotification("CHECKPOINT REACHED !"));
+        }
     }
 }

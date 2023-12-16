@@ -1,1 +1,0 @@
-Temp/ScriptUpdater/325267976/1640974036_CheckpointsHandler.cs => Assets/Scripts/CheckpointsHandler.cs
