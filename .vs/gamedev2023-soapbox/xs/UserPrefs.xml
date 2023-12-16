@@ -1,24 +1,21 @@
 ﻿<Properties StartupConfiguration="{94B1035D-331C-E0CF-B7ED-46326DAAED31}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CarMovement.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Assets/Scripts/CarMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CheckpointTrigger.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="gamedev2023-soapbox" expanded="True" selected="True" />
-        </State>
-      </Pad>
-      <Pad Id="MonoDevelop.UnitTesting.TestPad">
-        <State name="__root__">
-          <Node name="Unity" expanded="True" selected="True" />
+          <Node name="gamedev2023-soapbox" expanded="True">
+            <Node name="Assets" expanded="True" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="6f19b6d0-aee9-46a3-84c7-b76c103cd0a0" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9227a3b2-b1d9-41f5-8ed7-187da64b5b82" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
