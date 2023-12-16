@@ -5,6 +5,8 @@ using UnityEngine;
 public class WheelController : MonoBehaviour
 {
 
+    [SerializeField] GameState gameState;
+
     [SerializeField] WheelCollider frontRight;
     [SerializeField] WheelCollider frontLeft;
     [SerializeField] WheelCollider backRight;
@@ -15,8 +17,8 @@ public class WheelController : MonoBehaviour
     [SerializeField] Transform backRightTransform;
     [SerializeField] Transform backLeftTransform;
 
-    public float acceleration = 500f;
-    public float breakingForce = 300f;
+    public float acceleration = 3000f;
+    public float breakingForce = 1500f;
     public float maxTurnAngle = 15f;
 
     private float currentAcceleration = 0f;
@@ -25,10 +27,10 @@ public class WheelController : MonoBehaviour
 
     private void FixedUpdate() {
         // Get forward/backward acceleraton from the vertical axis (W and S keys)
-        currentAcceleration = acceleration * Input.GetAxis("Vertical");
+        currentAcceleration = (!gameState.getHasWon())? acceleration * Input.GetAxis("Vertical") : 0;
 
         // Pressing space = brake
-        if(Input.GetKey(KeyCode.Space))
+        if(!gameState.getHasWon() && Input.GetKey(KeyCode.Space))
             currentBreakForce = breakingForce;
         else
             currentBreakForce = 0f;
@@ -43,7 +45,7 @@ public class WheelController : MonoBehaviour
         backLeft.brakeTorque = currentBreakForce;
 
         // Take care of the steering
-        currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
+        currentTurnAngle = (!gameState.getHasWon())? maxTurnAngle * Input.GetAxis("Horizontal") : 0;
         frontLeft.steerAngle = currentTurnAngle;
         frontRight.steerAngle = currentTurnAngle;
 
