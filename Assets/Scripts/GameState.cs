@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    private bool hasWon = false;
+    private static bool hasWon = false;
     
     public void setHasWon(bool _hasWon) {
         hasWon = _hasWon;

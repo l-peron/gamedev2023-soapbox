@@ -66,9 +66,11 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/WinHandler.cs" />
     <Compile Include="Assets/Scripts/CheckpointsHandler.cs" />
+    <Compile Include="Assets/Scripts/MusicHandler.cs" />
     <Compile Include="Assets/Scripts/UIHandler.cs" />
     <Compile Include="Assets/Scripts/CheckpointTrigger.cs" />
     <Compile Include="Assets/Scripts/WheelController.cs" />
+    <Compile Include="Assets/Scripts/PauseHandler.cs" />
     <Compile Include="Assets/Scripts/GameState.cs" />
   </ItemGroup>
   <ItemGroup>
