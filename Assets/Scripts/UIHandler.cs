@@ -8,13 +8,36 @@ public class UIHandler : MonoBehaviour
     [SerializeField] Text chronoText;
     [SerializeField] Text checkpointReachedText;
     [SerializeField] Text checkpointsCounter;
+    [SerializeField] Text finalTimeText;
     [SerializeField] GameState gameState;
+
+    public float hueChangeSpeed = 1f;
+
+    private bool finalChronoHasBeenUpdated = false;
 
     // Update is called once per frame
     void Update()
     {
-        if(!gameState.getHasWon())
+        if(!gameState.getHasWon()) {
             updateChrono();
+        } else if(!finalChronoHasBeenUpdated){
+            finalChronoHasBeenUpdated = true;
+
+            float timeNow = Time.timeSinceLevelLoad;
+            string timeToSeconds = timeNow.ToString("F1");
+
+            finalTimeText.text = $"FINAL TIME : {timeToSeconds}S";
+        }
+    }
+
+    void FixedUpdate() {
+        // Make the final time go crazy
+        if(gameState.getHasWon()) {
+            float h, s, v;
+            Color.RGBToHSV(finalTimeText.color, out h, out s, out v);
+    
+            finalTimeText.color = Color.HSVToRGB(h + Time.deltaTime * hueChangeSpeed, s, v);
+        }
     }
 
     private IEnumerator FadeTo(float aValue, float aTime) {

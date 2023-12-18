@@ -7,6 +7,7 @@ public class WinHandler : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
     [SerializeField] GameState gameState;
+    [SerializeField] GameObject winMenu;
 
     public void win() {
         // Unicity check
@@ -17,5 +18,8 @@ public class WinHandler : MonoBehaviour
 
         // Make the camera stops following the player (but keep looking at him)
         cinemachineVirtualCamera.Follow = null;
+
+        // Show the win menu
+        winMenu.SetActive(true);
     }
 }

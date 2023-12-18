@@ -81,7 +81,6 @@ public class CheckpointsHandler : MonoBehaviour
         // Final checkpoint reached
         if(index == this.checkpoints.Length - 1) {
             Debug.Log("Player reached last checkpoint !");
-            StartCoroutine(UIHandler.printNotification("RACE FINISHED !"));
             winHandler.win();
         } else {
             // Update UI
